@@ -95,7 +95,7 @@ const friends: FriendLink[] = [
     {
         color: '#8B816F',
         name: 'Estela 山前',
-        desc: '蹦蹦跳跳，仙气飘飘',
+        desc: '传说中的山前姐姐！',
         avatar: 'estela.jpg',
         url: 'https://estela.cn/',
     },
