@@ -100,13 +100,6 @@ const friends: FriendLink[] = [
         url: 'https://estela.cn/',
     },
     {
-        color: '#D1B9B3',
-        name: '坊洛酱的小作坊',
-        desc: '是一只可爱的大佬',
-        avatar: 'fangluo.png',
-        url: 'https://fangluo.top/',
-    },
-    {
         color: '#FEECC7',
         name: '静かな森 | 致虚极，守静笃。',
         desc: '超级强强的大佬，博客超可爱！',
