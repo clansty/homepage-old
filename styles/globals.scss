@@ -51,13 +51,23 @@ a {
     transform: translateY(-40px);
   }
 
-  .postItem{
+  .postContent {
+    opacity: 0;
+    transform: translateY(50vh);
+  }
+}
+
+.enter {
+  .postItem {
     opacity: 0;
     transform: translateX(100%);
   }
+}
 
-  .postContent{
+.exit-active,
+.exit-done {
+  .postItem {
     opacity: 0;
-    transform: translateY(50vh);
+    transform: translateX(-100%);
   }
 }
