@@ -14,7 +14,7 @@ function Friends({friends}: InferGetStaticPropsType<typeof getStaticProps>) {
     const [friendsDisplay, setFriendsDisplay] = useState<FriendLink[]>(friends)
 
     useEffect(() => {
-        setFriendsDisplay(shuffle(friends))
+        setFriendsDisplay([...shuffle(friendsDisplay)])
     }, [])
 
     return <div className={styles.friendContainer}>
