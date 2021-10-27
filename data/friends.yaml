@@ -1,0 +1,90 @@
+- name: 一叶知秋 | 秋是悲欢离合，雨是一生错过。
+  desc: 秋雨落可爱！
+  url: 'https://blog.rain.cx/'
+  color: '#198CFF'
+  avatar: Infinity_rain.png
+- name: 倚窗，听雨
+  url: 'https://blog.coelacanthus.moe/'
+  desc: C10s 大佬！
+  color: '#F45A8D'
+  avatar: c10s.webp
+- name: ssr's blog
+  url: 'https://leanhe.dev/'
+  desc: 静静强强！
+  color: '#36A8ED'
+  avatar: ssr.png
+- url: 'https://fangyuan-neko.github.io/'
+  name: 方圆喵
+  desc: 方圆猫！
+  avatar: fangyuan.jpg
+  color: '#D4D4E0'
+- name: 洛灵酱的小窝
+  desc: 洛灵酱可爱又强强！！
+  url: 'https://luoling8192.top/'
+  color: '#FF6C6C'
+  avatar: luoling.jpg
+- name: Senioria的刺猬洞
+  desc: 是可爱刺猬 Senioria！
+  url: 'https://91khr.github.io'
+  color: '#7D5F54'
+  avatar: senioria.jpg
+- color: '#747CA3'
+  name: Candy Life
+  desc: 是 tommy 酱！
+  avatar: tommy.png
+  url: 'https://tommy0103.github.io'
+- color: '#B62512'
+  name: 黎想的博客 | 圣人不死，大盗不止
+  desc: 一只很喜欢 1145141919810 的大佬
+  avatar: lixiang.jpg
+  url: 'https://stblog.penclub.club'
+- color: '#76A5CF'
+  name: LightQuantum 光量子
+  desc: 光量子！巨佬！敲可爱！
+  avatar: lightquantum.png
+  url: 'https://lightquantum.me/'
+- color: '#4CA9F5'
+  name: Winslow Eric
+  desc: 喵喵喵！
+  avatar: winslow.png
+  url: 'https://winsloweric.com/'
+- color: '#A4918A'
+  name: 三日月綾香
+  desc: 大佬喵喵喵！
+  avatar: ayaka.jpg
+  url: 'https://ayaka.shn.hk/'
+- color: '#9CB557'
+  name: Ndoskrnl's blog
+  desc: 钱桑小可爱，不是小笨蛋
+  avatar: ndoskrnl.jpg
+  url: 'https://blog.ndoskrnl.net/'
+- color: '#00A2E8'
+  name: xtl
+  desc: 天乐大佬
+  avatar: xtl.png
+  url: 'https://www.xtlsoft.top/'
+- color: '#8B816F'
+  name: Estela 山前
+  desc: 传说中的山前姐姐！
+  avatar: estela.jpg
+  url: 'https://estela.cn/'
+- color: '#FEECC7'
+  name: 静かな森 | 致虚极，守静笃。
+  desc: 超级强强的大佬，博客超可爱！
+  avatar: innei.webp
+  url: 'https://innei.ren/'
+- color: '#AD7858'
+  name: Menci
+  desc: 微软大佬！
+  avatar: menci.png
+  url: 'https://men.ci/'
+- color: '#8DC0B9'
+  name: Frea的博客
+  desc: 是个大佬
+  avatar: frea.jpg
+  url: 'https://imfrea.com'
+- color: '#307910'
+  name: 荆棘的小屋 - Thorns's Site
+  desc: 这也是一只大佬！
+  avatar: jsun.png
+  url: 'https://jsun969.github.io/'

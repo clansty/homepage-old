@@ -1,20 +1,29 @@
-import friends from '../data/friends'
 import styles from '../styles/Components.module.scss'
 import FriendLinkBox from '../components/FriendLinkBox'
 import shuffle from '../utils/shuffle'
 import Link from 'next/link'
 import {LeftOutlined} from '@ant-design/icons'
-import {GetServerSideProps} from 'next'
+import {GetStaticProps, InferGetStaticPropsType} from 'next'
 import MtfWikiLinkBox from '../components/MtfWikiLinkBox'
+import YAML from 'yaml'
+import fs from 'fs'
+import FriendLink from '../types/FriendLink'
+import {useEffect, useState} from 'react'
 
-function Friends({friends}) {
+function Friends({friends}: InferGetStaticPropsType<typeof getStaticProps>) {
+    const [friendsDisplay, setFriendsDisplay] = useState<FriendLink[]>(friends)
+
+    useEffect(() => {
+        setFriendsDisplay(shuffle(friends))
+    }, [])
+
     return <div className={styles.friendContainer}>
         <div className={styles.scrollBox}>
             <div className={styles.groupBox}>
                 <div className={styles.title}>
                     好朋友们～
                 </div>
-                {friends.map(f => <FriendLinkBox item={f} key={f.name}/>)}
+                {friendsDisplay.map(f => <FriendLinkBox item={f} key={f.name}/>)}
             </div>
             <div className={styles.groupBox}>
                 <div className={styles.title}>
@@ -33,10 +42,10 @@ function Friends({friends}) {
     </div>
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
     return {
         props: {
-            friends: shuffle(friends),
+            friends: shuffle(YAML.parse(fs.readFileSync('data/friends.yaml', 'utf-8'))) as FriendLink[],
         },
     }
 }

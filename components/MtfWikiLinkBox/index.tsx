@@ -1,16 +1,12 @@
-import styles from '../styles/Components.module.scss'
+import styles from '../../styles/Components.module.scss'
 import classNames from 'classnames'
+import MtfWikiLogo from './MtfWikiLogo'
 
 export default function MtfWikiLinkBox() {
     return <a href="https://mtf.wiki" target="_blank">
         <div className={classNames(styles.friendLinkBox, styles.mtfWikiLinkBox)}>
             <div className={styles.avatar}>
-                <img
-                    src="https://cdn.lwqwq.com/pic/mtf-wiki-square.svg"
-                    height={80}
-                    width={80}
-                    alt="MtF Wiki"
-                />
+                <MtfWikiLogo/>
             </div>
             <div className={styles.text}>
                 <div className={styles.name}>
