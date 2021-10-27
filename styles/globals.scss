@@ -17,14 +17,47 @@ a {
   box-sizing: border-box;
 }
 
+.fade {
+  @media screen and (max-width: 500px) {
+    transition: all 0.6s ease-in-out;
+  }
+  @media screen and (min-width: 500.001px) {
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+  position: absolute !important;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  &.enter,
+  &.exit-active,
+  &.exit-done {
+    opacity: 0;
+    @media screen and (max-width: 500px) {
+      top: -100vh !important;
+    }
+    @media screen and (min-width: 500.001px) {
+      left: -500px !important;
+    }
+  }
+}
+
 .enter,
 .exit-active,
 .exit-done {
-  opacity: 0;
-  @media screen and (max-width: 500px) {
-    top: -100vh !important;
+  .blogHeader {
+    opacity: 0;
+    transform: translateY(-40px);
   }
-  @media screen and (min-width: 500.001px) {
-    left: -500px !important;
+
+  .postItem{
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  .postContent{
+    opacity: 0;
+    transform: translateY(50vh);
   }
 }

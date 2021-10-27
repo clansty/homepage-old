@@ -11,10 +11,12 @@ export default function Home() {
             你好，这里是凌莞
         </div>
         <div className={styles.highlight} aria-hidden={true} ref={highlightRef}/>
-        <a href="https://nyac.at" onMouseEnter={hoverHandler} onFocus={hoverHandler}>
-            博客
-            <span>Blog</span>
-        </a>
+        <Link href="/posts">
+            <a onMouseEnter={hoverHandler} onFocus={hoverHandler}>
+                博客
+                <span>Blog</span>
+            </a>
+        </Link>
         <a href="https://dl.lwqwq.com" onMouseEnter={hoverHandler} onFocus={hoverHandler}>
             资源
             <span>Downloads</span>
@@ -53,6 +55,6 @@ export default function Home() {
     function leave() {
         timeOutId && clearTimeout(timeOutId)
         highlightRef.current.style.opacity = '0'
-        timeOutId = setTimeout(() => highlightRef.current.style.display = 'none', 500)
+        timeOutId = setTimeout(() => highlightRef.current && (highlightRef.current.style.display = 'none'), 500)
     }
 }

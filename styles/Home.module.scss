@@ -32,6 +32,16 @@
   }
 }
 
+.background3 {
+  background-image: url("https://cdn.lwqwq.com/pic/xpy-next");
+  background-size: 500px;
+
+  ::selection {
+    background-color: #B68E97;
+    color: #eaeaea;
+  }
+}
+
 .footer {
   flex-direction: column;
   width: 100%;
@@ -52,13 +62,4 @@
     color: #606266;
     font-size: small;
   }
-}
-
-.fade {
-  transition: all 0.6s;
-  position: absolute !important;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
