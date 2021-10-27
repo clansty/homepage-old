@@ -11,6 +11,7 @@ for (const postPath of postPaths) {
 
     const post: PostInfo = YAML.parse(fs.readFileSync(metaPath, 'utf-8'))
     post.slug = postPath
+    post.date = new Date(post.date).toISOString()
     posts.push(post)
 }
 
