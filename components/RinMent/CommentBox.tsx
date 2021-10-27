@@ -38,7 +38,7 @@ export default function CommentBox({slug, addComment}) {
                 value={content} onChange={e => setContent(e.target.value)}
                 placeholder="正文！" required/>
             <div>
-                <button>发射～</button>
+                <button aria-label="发布评论">发射～</button>
             </div>
         </fieldset>
     </form>

@@ -5,6 +5,7 @@ import AboutContent from '../data/AboutContent'
 import {useRouter} from 'next/router'
 import AboutContentEn from '../data/AboutContentEn'
 import {useEffect, useState} from 'react'
+import Head from 'next/head'
 
 export default function About() {
     const router = useRouter()
@@ -14,6 +15,10 @@ export default function About() {
     }, [router.query.lang])
 
     return <div className={styles.aboutContainer}>
+        <Head>
+            <title>关于我</title>
+            <meta name="description" content="这里可能有一些你想了解的信息"/>
+        </Head>
         <div className={styles.title}>
             {lang === 'en' ? 'About' : '关于我'}
         </div>
@@ -33,7 +38,9 @@ export default function About() {
         </div>
         <div className={styles.languageSwitchMobile}>
             <Link href={{query: {lang: lang === 'en' ? 'zh' : 'en'}}}>
-                <TranslationOutlined/>
+                <a aria-label="切换语言 Switch language">
+                    <TranslationOutlined/>
+                </a>
             </Link>
         </div>
         <div className={styles.languageSwitch}>
