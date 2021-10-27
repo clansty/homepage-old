@@ -12,7 +12,7 @@ export default function SingleComment({comment}: { comment: Comment }) {
                     comment.username}
             </div>
             <div className={styles.date}>
-                {formatDate('yyyy/M/d h:m', new Date(comment.date))}
+                {formatDate('yyyy/M/d h:mm', new Date(comment.date))}
             </div>
             <pre>
                 {comment.content}
