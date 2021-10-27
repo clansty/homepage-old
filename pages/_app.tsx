@@ -7,6 +7,7 @@ import {useEffect, useState} from 'react'
 import randomChoose from '../utils/randomChoose'
 import PageSwapper from '@moxy/react-page-swapper'
 import {CSSTransition} from 'react-transition-group'
+import getConfig from 'next/config'
 
 function MyApp({Component, pageProps}) {
     const emojiList = ['(≧▽≦)', '( ╹▽╹ )', '(・∀・)']
@@ -25,7 +26,7 @@ function MyApp({Component, pageProps}) {
             <meta name="HandheldFriendly" content="true"/>
             <title>凌莞{chosenTitle}喵～</title>
             <meta name="description" content="这里是凌莞的主页喵"/>
-            <meta property="og:site_name" content="凌莞喵～" />
+            <meta property="og:site_name" content="凌莞喵～"/>
         </Head>
         <PageSwapper
             node={<Component {...pageProps} />}
@@ -42,6 +43,11 @@ function MyApp({Component, pageProps}) {
                 </CSSTransition>
             )}
         </PageSwapper>
+        {getConfig().publicRuntimeConfig?.DOMESTIC && <footer className={styles.footer}>
+            <a href="https://beian.miit.gov.cn/" target="_blank" className={styles.beian}>
+                苏ICP备2020048816号-1
+            </a>
+        </footer>}
     </div>
 }
 
