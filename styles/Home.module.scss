@@ -42,6 +42,25 @@
   }
 }
 
+.background4 {
+  background-image: url("https://cdn.lwqwq.com/pic/338886_4p9OhROi.webp");
+  background-size: 500px;
+
+  ::selection {
+    background-color: #E0EEF0;
+  }
+}
+
+.background5 {
+  background-image: url("https://cdn.lwqwq.com/pic/338886_dOfhnpC7.webp");
+  background-size: 500px;
+
+  ::selection {
+    background-color: #CF8485;
+    color: #eaeaea;
+  }
+}
+
 .footer {
   flex-direction: column;
   width: 100%;

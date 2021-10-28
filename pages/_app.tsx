@@ -11,7 +11,7 @@ import getConfig from 'next/config'
 
 function MyApp({Component, pageProps}) {
     const emojiList = ['(≧▽≦)', '( ╹▽╹ )', '(・∀・)']
-    const backgrounds = [styles.background1, styles.background2, styles.background3]
+    const backgrounds = [styles.background1, styles.background2, styles.background3, styles.background4, styles.background5]
     const [randomBackground, setRandomBackground] = useState('')
     const [chosenTitle, setChosenTitle] = useState('')
     useEffect(() => {
