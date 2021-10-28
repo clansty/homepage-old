@@ -19,12 +19,6 @@ jobs:
       - name: Generate static pages
         run: yarn export:dome
 
-      - name: Purge useless contents
-        run: rm out/404.html
-
-      - name: Copy favicon
-        run: cp out/favicon.webp out/favicon.ico
-
       - name: Upload COS
         uses: TencentCloud/cos-action@v1
         with:
