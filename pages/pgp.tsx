@@ -7,6 +7,8 @@ import {CopyToClipboard} from 'react-copy-to-clipboard'
 export default function GpgPage() {
     const [copied, setCopied] = useState(false)
     return <div className={styles.pgpContainer}>
+        <title>GPG 公钥</title>
+        <meta name="description" content="凌莞 GPG 公钥的复制与下载"/>
         <div className={styles.back}>
             <Link href="/">
                 <a>

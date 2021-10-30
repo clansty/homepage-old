@@ -6,6 +6,8 @@ import styles from '../styles/Components.module.scss'
 
 export default function Posts({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
     return <BlogLayout>
+        <title>文章列表</title>
+        <meta name="description" content="博客文章列表"/>
         <div className={styles.postList}>
             {posts.map((e, i) => <PostsIndexItem post={e} key={e.slug} index={i}/>)}
         </div>

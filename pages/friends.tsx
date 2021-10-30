@@ -18,6 +18,8 @@ function Friends({friends}: InferGetStaticPropsType<typeof getStaticProps>) {
     }, [])
 
     return <div className={styles.friendContainer}>
+        <title>友情链接</title>
+        <meta name="description" content="这里是凌莞的好朋友们"/>
         <div className={styles.scrollBox}>
             <div className={styles.groupBox}>
                 <div className={styles.title}>

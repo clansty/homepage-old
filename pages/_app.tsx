@@ -18,13 +18,10 @@ function MyApp({Component, pageProps}) {
         }
     }
 
-    const emojiList = ['(≧▽≦)', '( ╹▽╹ )', '(・∀・)']
     const backgrounds = [styles.background1, styles.background2, styles.background3, styles.background4, styles.background5]
     const [randomBackground, setRandomBackground] = useState('')
-    const [chosenTitle, setChosenTitle] = useState('')
     useEffect(() => {
         setRandomBackground(randomChoose(backgrounds))
-        setChosenTitle(randomChoose(emojiList))
     }, [])
     return <div className={classNames(styles.container, randomBackground)}>
         <Head>
@@ -32,8 +29,6 @@ function MyApp({Component, pageProps}) {
             <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
             <meta name="theme-color" content="#EDF8F6"/>
             <meta name="HandheldFriendly" content="true"/>
-            <title>凌莞{chosenTitle}喵～</title>
-            <meta name="description" content="这里是凌莞的主页喵"/>
             <meta property="og:site_name" content="凌莞喵～"/>
         </Head>
         <PageSwapper
