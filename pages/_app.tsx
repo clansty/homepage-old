@@ -8,8 +8,16 @@ import randomChoose from '../utils/randomChoose'
 import PageSwapper from '@moxy/react-page-swapper'
 import {CSSTransition} from 'react-transition-group'
 import getConfig from 'next/config'
+import {useRouter} from 'next/router'
 
 function MyApp({Component, pageProps}) {
+    const router = useRouter()
+    if (typeof window !== 'undefined') {
+        if (/^https?:\/\/(\w+\.)?nya.al/.test(document.referrer)) {
+            router.replace('/referrerNotAllowed')
+        }
+    }
+
     const emojiList = ['(≧▽≦)', '( ╹▽╹ )', '(・∀・)']
     const backgrounds = [styles.background1, styles.background2, styles.background3, styles.background4, styles.background5]
     const [randomBackground, setRandomBackground] = useState('')
