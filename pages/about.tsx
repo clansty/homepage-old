@@ -18,6 +18,7 @@ export default function About() {
         <Head>
             <title>关于我</title>
             <link rel="canonical" href="https://clansty.com/about" />
+            <meta property="og:url" content="https://clansty.com/about"/>
             <meta name="description" content="这里可能有一些你想了解的信息"/>
         </Head>
         <div className={styles.title}>

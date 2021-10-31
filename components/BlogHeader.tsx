@@ -11,6 +11,6 @@ export default function BlogHeader({postTitle}: { postTitle?: string }) {
                 </a>
             </Link>
         </div>
-        {postTitle}
+        <h1>{postTitle}</h1>
     </div>
 }

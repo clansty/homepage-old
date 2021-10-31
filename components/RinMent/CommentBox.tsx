@@ -23,6 +23,7 @@ export default function CommentBox({slug, addComment}) {
     return <form className={styles.commentBox} onSubmit={sendComment}>
         来评论叭～
         <fieldset disabled={isDisabled}>
+            <legend>评论输入区域</legend>
             <div>
                 <input type="text"
                        value={username} onChange={e => setUsername(e.target.value)}

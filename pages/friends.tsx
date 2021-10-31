@@ -22,6 +22,7 @@ function Friends({friends}: InferGetStaticPropsType<typeof getStaticProps>) {
         <Head>
             <title>友情链接</title>
             <link rel="canonical" href="https://clansty.com/friends" />
+            <meta property="og:url" content="https://clansty.com/friends"/>
             <meta name="description" content="这里是凌莞的好朋友们"/>
         </Head>
         <div className={styles.scrollBox}>

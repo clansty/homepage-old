@@ -39,6 +39,7 @@ export default function SinglePost({meta, content}: { meta: PostInfo, content: s
             <meta property="og:type" content="article"/>
             <meta property="og:description" content={meta.desc}/>
             <meta property="og:image" content={meta.banner}/>
+            <meta property="og:url" content={`https://nyac.at/posts/${meta.slug}`}/>
             <meta property="article:published_time" content={new Date(meta.date).toISOString()}/>
             <meta property="article:modified_time" content={new Date(meta.date).toISOString()}/>
             <meta name="twitter:title" content={meta.title}/>

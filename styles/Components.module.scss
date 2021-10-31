@@ -526,6 +526,16 @@
       position: unset;
       color: #606266;
     }
+
+    h1 {
+      flex-grow: 1;
+      font-size: unset;
+      font-weight: unset;
+      margin: 0;
+      padding: 0;
+      margin-block: 0;
+      margin-inline: 0;
+    }
   }
 
   .body {
@@ -648,6 +658,10 @@
   border-top: 1px solid rgba(128, 128, 128, .12);
   padding-top: 18px;
 
+  label,legend{
+    display: none;
+  }
+
   fieldset {
     margin: 7px 0 0 0;
     margin-inline: 0;
@@ -662,7 +676,7 @@
     }
   }
 
-  div:first-child {
+  div:nth-child(2) {
     display: grid;
     grid-template-columns: 33.33% 33.33% 33.33%;
   }
