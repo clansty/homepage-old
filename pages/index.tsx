@@ -19,6 +19,7 @@ export default function Home() {
         <Head>
             <title>凌莞{chosenTitle}喵～</title>
             <meta name="description" content="这里是凌莞的主页喵"/>
+            <link rel="canonical" href="https://clansty.com/" />
         </Head>
         <div className={styles.title} onMouseEnter={leave}>
             你好，这里是凌莞

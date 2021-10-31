@@ -10,6 +10,7 @@ export default function GpgPage() {
     return <div className={styles.pgpContainer}>
         <Head>
             <title>GPG 公钥</title>
+            <link rel="canonical" href="https://clansty.com/pgp" />
             <meta name="description" content="凌莞 GPG 公钥的复制与下载"/>
         </Head>
         <div className={styles.back}>

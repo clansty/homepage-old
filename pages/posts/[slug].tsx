@@ -32,18 +32,19 @@ export default function SinglePost({meta, content}: { meta: PostInfo, content: s
     return <BlogLayout postTitle={meta.title}>
         <Head>
             <title>{meta.title} — 凌莞咕噜咕噜～</title>
+            <link rel="canonical" href={`https://nyac.at/posts/${meta.slug}`}/>
             <meta name="description" content={meta.desc}/>
             <meta name="author" content="Clansty"/>
-            <meta property="og:title" content={meta.title} />
-            <meta property="og:type" content="article" />
+            <meta property="og:title" content={meta.title}/>
+            <meta property="og:type" content="article"/>
             <meta property="og:description" content={meta.desc}/>
-            <meta property="og:image" content={meta.banner} />
-            <meta property="article:published_time" content={new Date(meta.date).toISOString()} />
-            <meta property="article:modified_time" content={new Date(meta.date).toISOString()} />
-            <meta name="twitter:title" content={meta.title} />
+            <meta property="og:image" content={meta.banner}/>
+            <meta property="article:published_time" content={new Date(meta.date).toISOString()}/>
+            <meta property="article:modified_time" content={new Date(meta.date).toISOString()}/>
+            <meta name="twitter:title" content={meta.title}/>
             <meta name="twitter:description" content={meta.desc}/>
-            <meta name="twitter:card" content="summary" />
-            <meta name="twitter:image" content={meta.banner} />
+            <meta name="twitter:card" content="summary"/>
+            <meta name="twitter:image" content={meta.banner}/>
         </Head>
         <div className="postContent">
             {/* @ts-ignore */}

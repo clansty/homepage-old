@@ -9,6 +9,7 @@ export default function Posts({posts}: InferGetStaticPropsType<typeof getStaticP
     return <BlogLayout>
         <Head>
             <title>凌莞咕噜咕噜～</title>
+            <link rel="canonical" href="https://clansty.com/posts" />
             <meta name="description" content="一个奇奇怪怪的地方"/>
         </Head>
         <div className={styles.postList}>
