@@ -3,6 +3,7 @@ import SocialNetworks from '../components/SocialNetworks'
 import Link from 'next/link'
 import {useEffect, useRef, useState} from 'react'
 import randomChoose from '../utils/randomChoose'
+import Head from 'next/head'
 
 export default function Home() {
     const emojiList = ['(≧▽≦)', '( ╹▽╹ )', '(・∀・)']
@@ -10,13 +11,15 @@ export default function Home() {
     const highlightRef = useRef<HTMLDivElement>()
     const [chosenTitle, setChosenTitle] = useState('')
 
-    useEffect(()=>{
+    useEffect(() => {
         setChosenTitle(randomChoose(emojiList))
     }, [])
 
     return <div className={styles.linkContainer} onMouseLeave={leave}>
-        <title>凌莞{chosenTitle}喵～</title>
-        <meta name="description" content="这里是凌莞的主页喵"/>
+        <Head>
+            <title>凌莞{chosenTitle}喵～</title>
+            <meta name="description" content="这里是凌莞的主页喵"/>
+        </Head>
         <div className={styles.title} onMouseEnter={leave}>
             你好，这里是凌莞
         </div>

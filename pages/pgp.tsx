@@ -3,12 +3,15 @@ import Link from 'next/link'
 import {CopyOutlined, DownloadOutlined, LeftOutlined} from '@ant-design/icons'
 import {useState} from 'react'
 import {CopyToClipboard} from 'react-copy-to-clipboard'
+import Head from 'next/head'
 
 export default function GpgPage() {
     const [copied, setCopied] = useState(false)
     return <div className={styles.pgpContainer}>
-        <title>GPG 公钥</title>
-        <meta name="description" content="凌莞 GPG 公钥的复制与下载"/>
+        <Head>
+            <title>GPG 公钥</title>
+            <meta name="description" content="凌莞 GPG 公钥的复制与下载"/>
+        </Head>
         <div className={styles.back}>
             <Link href="/">
                 <a>

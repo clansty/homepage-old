@@ -9,6 +9,7 @@ import YAML from 'yaml'
 import fs from 'fs'
 import FriendLink from '../types/FriendLink'
 import {useEffect, useState} from 'react'
+import Head from 'next/head'
 
 function Friends({friends}: InferGetStaticPropsType<typeof getStaticProps>) {
     const [friendsDisplay, setFriendsDisplay] = useState<FriendLink[]>(friends)
@@ -18,8 +19,10 @@ function Friends({friends}: InferGetStaticPropsType<typeof getStaticProps>) {
     }, [])
 
     return <div className={styles.friendContainer}>
-        <title>友情链接</title>
-        <meta name="description" content="这里是凌莞的好朋友们"/>
+        <Head>
+            <title>友情链接</title>
+            <meta name="description" content="这里是凌莞的好朋友们"/>
+        </Head>
         <div className={styles.scrollBox}>
             <div className={styles.groupBox}>
                 <div className={styles.title}>
