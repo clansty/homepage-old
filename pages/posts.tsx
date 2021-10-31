@@ -8,8 +8,8 @@ import Head from 'next/head'
 export default function Posts({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
     return <BlogLayout>
         <Head>
-            <title>文章列表</title>
-            <meta name="description" content="博客文章列表"/>
+            <title>凌莞咕噜咕噜～</title>
+            <meta name="description" content="一个奇奇怪怪的地方"/>
         </Head>
         <div className={styles.postList}>
             {posts.map((e, i) => <PostsIndexItem post={e} key={e.slug} index={i}/>)}
