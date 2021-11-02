@@ -50,18 +50,20 @@ export default function AboutContent() {
             React。
         </p>
         <p>React 大好。所以现在更喜欢用 React 写东西。</p>
-        <p>像这个主站就是用 React (
+        <p>
+            像这个主站就是用 React (
             <NextIcon/>
-            Next.JS) 写的，托管在
+            Next.JS) 写的
+        </p>
+        <p>
+            托管在
             <VercelIcon/>
-            上
+            ，Cloudflare Pages，以及腾讯云 COS 上
         </p>
         <p>大概是会一点 Python，也会一点 C# 和 Java</p>
         <p>学过 C++，但是现在大概不会了</p>
         <p>
             目前使用的操作系统是
-            <OpenSUSEIcon/>
-            openSUSE 和
             <ArchLinuxIcon/>
             Arch Linux
         </p>

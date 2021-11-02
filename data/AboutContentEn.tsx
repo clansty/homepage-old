@@ -45,17 +45,19 @@ export default function AboutContentEn() {
             React。
         </p>
         <p>React is so good that I always use react to create web apps now</p>
-        <p>This site is written in React (
+        <p>
+            This site is written in React (
             <NextIcon/>
-            Next.JS) and hosted on&nbsp;
+            Next.JS)
+        </p>
+        <p> hosted on&nbsp;
             <VercelIcon/>
+            , Cloudflare Pages and Tencent COS
         </p>
         <p>Learnt some Python, C# and Java</p>
         <p>Once learnt C++, but forgot now</p>
         <p>
             Now using&nbsp;
-            <OpenSUSEIcon/>
-            openSUSE and&nbsp;
             <ArchLinuxIcon/>
             Arch Linux
         </p>
