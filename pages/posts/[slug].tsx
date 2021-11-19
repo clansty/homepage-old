@@ -8,7 +8,6 @@ import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {materialOceanic} from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import Head from 'next/head'
 import RinMent from '../../components/RinMent'
-import styles from '../../styles/Components.module.scss'
 import formatDate from '../../utils/formatDate'
 
 const components = {
@@ -29,7 +28,7 @@ const components = {
         )
     },
     a({href, children}) {
-        return <a href={href}>
+        return <a href={href} target="_blank">
             {children}
             <style jsx>{`
               a {
@@ -58,7 +57,6 @@ export default function SinglePost({meta, content}: { meta: PostInfo, content: s
             <meta name="twitter:description" content={meta.desc}/>
             <meta name="twitter:card" content="summary"/>
             <meta name="twitter:image" content={meta.banner}/>
-            <base target="_blank"/>
         </Head>
         <div className="postContent">
             <div className="date">
