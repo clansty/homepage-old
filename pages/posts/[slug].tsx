@@ -26,6 +26,16 @@ const components = {
             </code>
         )
     },
+    a({href, children}) {
+        return <a href={href}>
+            {children}
+            <style jsx>{`
+              a {
+                --href: '${href}'
+              }
+            `}</style>
+        </a>
+    },
 }
 
 export default function SinglePost({meta, content}: { meta: PostInfo, content: string }) {
@@ -46,6 +56,7 @@ export default function SinglePost({meta, content}: { meta: PostInfo, content: s
             <meta name="twitter:description" content={meta.desc}/>
             <meta name="twitter:card" content="summary"/>
             <meta name="twitter:image" content={meta.banner}/>
+            <base target="_blank"/>
         </Head>
         <div className="postContent">
             {/* @ts-ignore */}
