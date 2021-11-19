@@ -8,6 +8,8 @@ import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {materialOceanic} from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import Head from 'next/head'
 import RinMent from '../../components/RinMent'
+import styles from '../../styles/Components.module.scss'
+import formatDate from '../../utils/formatDate'
 
 const components = {
     code({node, inline, className, children, ...props}) {
@@ -59,6 +61,9 @@ export default function SinglePost({meta, content}: { meta: PostInfo, content: s
             <base target="_blank"/>
         </Head>
         <div className="postContent">
+            <div className="date">
+                {formatDate('yyyy/MM/dd', new Date(meta.date))}
+            </div>
             {/* @ts-ignore */}
             <ReactMarkdown components={components}>{content}</ReactMarkdown>
             <RinMent slug={meta.slug}/>
