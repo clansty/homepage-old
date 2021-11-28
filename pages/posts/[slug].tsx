@@ -9,37 +9,57 @@ import {materialOceanic} from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import Head from 'next/head'
 import RinMent from '../../components/RinMent'
 import formatDate from '../../utils/formatDate'
+import {useRouter} from 'next/router'
+import {ReactChildren, useRef} from 'react'
 
-const components = {
-    code({node, inline, className, children, ...props}) {
-        const match = /language-(\w+)/.exec(className || '')
-        return !inline && match ? (
-            <SyntaxHighlighter
-                style={materialOceanic}
-                language={match[1]}
-                PreTag="div"
-                children={String(children).replace(/\n$/, '')}
-                showLineNumbers
-                {...props} />
-        ) : (
-            <code className={className} {...props}>
+
+export default function SinglePost({
+                                       meta,
+                                       content,
+                                       allPosts,
+                                   }: { meta: PostInfo, content: string, allPosts: PostInfo[] }) {
+    const Router = useRouter()
+    const contentBox = useRef<HTMLDivElement>()
+    const components = {
+        code({node, inline, className, children, ...props}) {
+            const match = /language-(\w+)/.exec(className || '')
+            return !inline && match ? (
+                <SyntaxHighlighter
+                    style={materialOceanic}
+                    language={match[1]}
+                    PreTag="div"
+                    children={String(children).replace(/\n$/, '')}
+                    showLineNumbers
+                    {...props} />
+            ) : (
+                <code className={className} {...props}>
+                    {children}
+                </code>
+            )
+        },
+        a({href, children}: { href: string, children: ReactChildren }) {
+            if (/^https?:\/\//.test(href))
+                return <a href={href} target="_blank">
+                    {children}
+                    <style jsx>{`
+                      a {
+                        --href: '${href}'
+                      }
+                    `}</style>
+                </a>
+            return <a className="inSiteLink" onClick={() => {
+                Router.push(href)
+                    .then(() => contentBox.current.scrollTo(0, 0))
+            }}>
                 {children}
-            </code>
-        )
-    },
-    a({href, children}) {
-        return <a href={href} target="_blank">
-            {children}
-            <style jsx>{`
-              a {
-                --href: '${href}'
-              }
-            `}</style>
-        </a>
-    },
-}
-
-export default function SinglePost({meta, content}: { meta: PostInfo, content: string }) {
+                <style jsx>{`
+                  a {
+                    --href: '${href.includes('/') ? href : allPosts.find(e => e.slug === href).title}'
+                  }
+                `}</style>
+            </a>
+        },
+    }
     return <BlogLayout postTitle={meta.title}>
         <Head>
             <title>{meta.title} — 凌莞咕噜咕噜～</title>
@@ -58,7 +78,7 @@ export default function SinglePost({meta, content}: { meta: PostInfo, content: s
             <meta name="twitter:card" content="summary"/>
             <meta name="twitter:image" content={meta.banner}/>
         </Head>
-        <div className="postContent">
+        <div className="postContent" ref={contentBox}>
             <div className="date">
                 {formatDate('yyyy/MM/dd', new Date(meta.date))}
             </div>
@@ -86,6 +106,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
             meta: allPosts.find(e => e.slug === params.slug),
             content: getPostContent(params.slug as string),
             isInBlog: true,
+            allPosts,
         },
     }
 }
