@@ -9,7 +9,7 @@ export default function FriendLinkBox({item}: { item: FriendLink }) {
                     src={'/friend-avatars/' + item.avatar}
                     height={80}
                     width={80}
-                    alt={`${item.name} 的头像`}
+                    alt=""
                 />
             </div>
             <div className={styles.text}>
