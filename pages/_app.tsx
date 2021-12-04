@@ -9,14 +9,30 @@ import PageSwapper from '@moxy/react-page-swapper'
 import {CSSTransition} from 'react-transition-group'
 import getConfig from 'next/config'
 import {useRouter} from 'next/router'
+import axios from 'axios'
 
 function MyApp({Component, pageProps}) {
     const router = useRouter()
     if (typeof window !== 'undefined') {
-        if (/^https?:\/\/(\w+\.)?nya.al/.test(document.referrer)) {
+        if (/^https?:\/\/(\w+\.)?nya\.al/.test(document.referrer)) {
             router.replace('/referrerNotAllowed')
         }
     }
+
+    const [isTMeConnectionOK, setIsTMeConnectionOK] = useState(false)
+    useEffect(() => {
+        if (/^https?:\/\/(\w+\.)?lwqwq\.com/.test(location.href)) {
+            setIsTMeConnectionOK(false)
+            return
+        }
+        axios.get('https://api.telegram.org/test', {
+            validateStatus: (code) => code === 404,
+        }).then(() => {
+            setIsTMeConnectionOK(true)
+        }).catch(() => {
+            setIsTMeConnectionOK(false)
+        })
+    }, [])
 
     const backgrounds = [styles.background1, styles.background2, styles.background3, styles.background4, styles.background5]
     const [randomBackground, setRandomBackground] = useState('')
@@ -31,9 +47,10 @@ function MyApp({Component, pageProps}) {
             <meta name="HandheldFriendly" content="true"/>
             <meta property="og:site_name" content="凌莞喵～"/>
             <meta property="og:locale" content="zh_CN"/>
+            <title>凌莞喵～</title>
         </Head>
         <PageSwapper
-            node={<Component {...pageProps} />}
+            node={<Component isTMeConnectionOK={isTMeConnectionOK} {...pageProps} />}
         >
             {({in: inProp, onEntered, onExited, node}) => (
                 <CSSTransition
