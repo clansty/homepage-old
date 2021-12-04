@@ -6,7 +6,7 @@ export default function FriendLinkBox({item}: { item: FriendLink }) {
         <div className={styles.friendLinkBox}>
             <div className={styles.avatar}>
                 <img
-                    src={'/friend-avatars/' + item.avatar}
+                    src={`https://cdn.lwqwq.com/pic/friend-avatars/${item.avatar}.webp`}
                     height={80}
                     width={80}
                     alt=""
