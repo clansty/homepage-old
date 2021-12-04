@@ -17,7 +17,7 @@ jobs:
         run: yarn install
 
       - name: Generate static pages
-        run: yarn export:dome
+        run: yarn export
 
       - name: Upload COS
         uses: TencentCloud/cos-action@v1
