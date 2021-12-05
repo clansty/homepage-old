@@ -50,7 +50,7 @@ export default function Home() {
             </a>
         </Link>
         <Link href="/shares">
-            <a onMouseEnter={hoverHandler} onFocus={hoverHandler} className={styles.mayHide}>
+            <a onMouseEnter={hoverHandler} onFocus={hoverHandler}>
                 碎碎念
                 <span>Shares</span>
             </a>
