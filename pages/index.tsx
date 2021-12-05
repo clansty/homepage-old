@@ -5,7 +5,7 @@ import {useEffect, useRef, useState} from 'react'
 import randomChoose from '../utils/randomChoose'
 import Head from 'next/head'
 
-export default function Home({isTMeConnectionOK}: { isTMeConnectionOK: boolean }) {
+export default function Home() {
     const emojiList = ['(≧▽≦)', '( ╹▽╹ )', '(・∀・)']
 
     const highlightRef = useRef<HTMLDivElement>()
@@ -49,12 +49,12 @@ export default function Home({isTMeConnectionOK}: { isTMeConnectionOK: boolean }
                 <span>About</span>
             </a>
         </Link>
-        {isTMeConnectionOK && <Link href="/shares">
+        <Link href="/shares">
             <a onMouseEnter={hoverHandler} onFocus={hoverHandler} className={styles.mayHide}>
                 碎碎念
                 <span>Shares</span>
             </a>
-        </Link>}
+        </Link>
         <div className={styles.footer} onMouseEnter={leave}>
             <div className={styles.space} onMouseEnter={leave}/>
             {SocialNetworks(hoverHandler)}
