@@ -1,4 +1,4 @@
-虽然标题上写的是六项费用不过这可以算是一个完整的[南京信息工程大学](https://mtf.wiki/zh-cn/docs/campus/quality/#南京信息工程大学)医保报销平台的用法。无论你是测六项还是生化还是开药看[曹阿姨](https://mtf.wiki/zh-cn/docs/psyco/yangtze/cao-qiuyun/)做量表的费用都可以报销。
+虽然标题上写的是六项费用不过这可以算是一个完整的[南京信息工程大学](https://0w.al/nuist)医保报销平台的用法。无论你是测六项还是生化还是开药看[曹阿姨](https://mtf.wiki/zh-cn/docs/psyco/yangtze/cao-qiuyun/)做量表的费用都可以报销。
 
 ## 前提
 
@@ -50,4 +50,4 @@
 
 这是医保办公室门上贴的东西，包含一些具体的条例，可以参考
 
-![IMG20211105125915](https://cdn.lwqwq.com/pic/IMG20211105125915.webp)
+![医保办公室门上贴的东西](https://cdn.lwqwq.com/pic/IMG20211105125915.webp)
