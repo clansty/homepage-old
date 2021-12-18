@@ -20,7 +20,10 @@ function MyApp({Component, pageProps}) {
 
     const backgrounds = [styles.background1, styles.background2, styles.background3, styles.background4, styles.background5]
     const [randomBackground, setRandomBackground] = useState('')
+    const [isBeianShown, setBeianShown] = useState(false)
     useEffect(() => {
+        if(location.host.includes('lwqwq.com'))
+            setBeianShown(true)
         setRandomBackground(randomChoose(backgrounds))
     }, [])
     return <div className={classNames(styles.container, randomBackground)}>
@@ -48,7 +51,7 @@ function MyApp({Component, pageProps}) {
                 </CSSTransition>
             )}
         </PageSwapper>
-        {getConfig().publicRuntimeConfig?.DOMESTIC && <footer className={styles.footer}>
+        {isBeianShown && <footer className={styles.footer}>
             <a href="https://beian.miit.gov.cn/" target="_blank" className={styles.beian}>
                 苏ICP备2020048816号-1
             </a>
