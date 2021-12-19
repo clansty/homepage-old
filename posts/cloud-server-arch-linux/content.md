@@ -114,7 +114,7 @@ ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 127.0.0.1	你刚才设置的主机名
 ```
 
-安装一下必要的软件，这样重启之后就有网并且能通过 SSH 连上啦
+开启一下必要的服务，这样重启之后就有网并且能通过 SSH 连上啦
 
 ```shell
 systemctl enable systemd-resolved
