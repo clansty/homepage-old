@@ -4,15 +4,11 @@
 
 众所周知，阿里云的镜像里面是没有 Arch Linux 这个选项的，并且阿里云也不支持在控制台里面上传 ISO 挂载到虚拟机上装系统，所以我们想要安装 Arch Linux，只能通过现有的 Ubuntu 之类的系统，通过 chroot 进入一个 Arch 的临时环境，再删除原有的系统文件并安装 Arch Linux。整个过程大概用了半个小时，非常顺利
 
-
-
 至于为什么要装 Arch 呢？好用呗，话不多说，开始装
 
 ## 下载 RootFS
 
 首先呢我们得有一个 Arch 的 RootFS，也就是一个基本的包括 Arch Linux 根目录下所有文件的文件夹，一会儿要 chroot 进去。为了使用 chroot 这个功能
-
-
 
 直接在 [Arch 的下载页面](https://archlinux.org/download/)找一个离服务器比较近的镜像源，复制里面 `archlinux-bootstrap` 开头的 `tar.gz` 包的地址，下载到服务器的 `/tmp` 文件夹。其实这个时候可以 cd 到 /tmp 里面把不相关的文件都删掉了
 
@@ -66,8 +62,6 @@ pacman-key --populate archlinux
 
 现在我们已经进入属于 Arch 的世界了，不会再想念原先的 Linux 发行版了。所以现在应该把原先发行版的文件消灭掉。由于我们现在运行的环境就在原先的分区上，所以直接格式化肯定是不行的。需要把原先的分区挂载到现在的系统中，然后把属于原系统的文件删删删
 
-
-
 在阿里云中，系统分区是 `/dev/vda1`
 
 ```shell
@@ -76,13 +70,11 @@ mount /dev/vda1 /mnt
 
 由于 Linux 系统中“一切皆文件”，像 `/dev` `/proc` `/run` `/sys` 这些目录都是存储到硬件的映射的，所以不能删。同时，我们工作的目录在 `/tmp` 下，`swapfile` （如果有）是我们正在使用的 swap。咱们用 `rm -rf` 命令，把其余的文件都清除干净
 
-
-
 像正常安装 Arch Linux 一样使用 `pacstrap` 向目标挂载点安装系统底层的软件包，并生成 `fstab` 挂载配置文件
 
 ```shell
-pacstrap /mnt base base-devel linux linux-firmware
-genfstab -U /mnt >> /mnt/etc/fstab
+pacstrap /mnt base base-devel linux linux-headers linux-firmware vim dhcpcd openssh grub
+genfstab -U /mnt > /mnt/etc/fstab
 ```
 
 这时候系统安装就已经完成了
@@ -91,7 +83,23 @@ genfstab -U /mnt >> /mnt/etc/fstab
 
 再通过 `arch-chroot` 切换到安装好的系统目录下，进入最后的系统配置和必备程序包的安装
 
+```bash
+arch-chroot /mnt
+```
 
+> 注意，要是在 chroot 的时候发生与 `/etc/resolv.conf` 挂载相关的问题，可以先执行
+
+```bash
+umount /etc/resolv.conf
+```
+
+> 然后再 chroot，进去之后执行
+
+```bash
+echo 'nameserver 223.5.5.5' > /etc/resolv.conf
+```
+
+> 否则可能会无法解析 IP。如果上面 chroot 时没有出现问题可以跳过这个
 
 首先将时区设置为北京时间
 
@@ -109,28 +117,9 @@ ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 安装一下必要的软件，这样重启之后就有网并且能通过 SSH 连上啦
 
 ```shell
-pacman -S vim dhcpcd openssh grub
-systemctl enable systemd-networkd
 systemctl enable systemd-resolved
 systemctl enable dhcpcd
 systemctl enable sshd
-```
-
-创建网络接口
-
-```shell
-vim /etc/systemd/network/dhcp.network
-```
-
-```ini
-[Match]
-Name=ens3
-
-[Network]
-DHCP=ipv4
-
-[DHCPv4]
-UseHostname=false
 ```
 
 还需要给自己创建一个用户，Arch Linux 默认禁止以 root 身份远程登录。`-m` 的意思是为用户创建自己的主目录，`wheel` 是默认能执行 sudo 命令的用户组
@@ -145,8 +134,10 @@ useradd clansty -m -G wheel
 su clansty
 cd ~
 mkdir .ssh
+chmod 700 .ssh
 cd .ssh
 vim authorized_keys
+chmod 600 authorized_keys
 ```
 
 回到 root 用户，保险起见，给 root 以及自己的用户设置好密码，这样要是无法公钥登录还能以密码登录
@@ -174,8 +165,6 @@ grub-mkconfig -o /boot/grub/grub.cfg
 ## 重启啦
 
 重启回来了，sudo 一下看看是否一切正常，正常的话咱就进 `/etc/shadow` 删除密码了，只保留私钥登录
-
-
 
 然后启用一下网络时间同步
 
