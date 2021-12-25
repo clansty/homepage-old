@@ -14,7 +14,7 @@ function MyApp({Component, pageProps}) {
     const router = useRouter()
     if (typeof window !== 'undefined') {
         if (/^https?:\/\/(\w+\.)?nya\.al/.test(document.referrer)) {
-            router.replace('/referrerNotAllowed')
+            location.href = 'https://lanyue.tanwan.com/'
         }
     }
 
