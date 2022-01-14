@@ -1,3 +1,5 @@
+> 提示：我发现我这台 Windows 的服务器是有扣费的（扣那免费 100 刀里面的钱）。我也不知道是创建 Windows 的时候没有创建好还是重装导致的问题。我觉得也想这么做的人最好注意一下？
+
 ## 起因
 
 事情是这样的，微软 Azure 提供的学生[免费套餐](https://azure.microsoft.com/en-us/free/students/)中有免费的一台 Windows 虚拟机和一台 Linux 虚拟机，都是 1 核 1G 的。对于 Linux 来说，这差不多正好，但是对于 Windows，这怎么用啊QAQ
