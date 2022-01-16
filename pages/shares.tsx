@@ -20,7 +20,7 @@ export default function Shares() {
                 </Link>
             </div>
         </div>
-        <iframe src="https://xn--r1a.website/s/clanstty" frameBorder="0" />
+        <iframe src="https://tg.0w0.wiki" frameBorder="0" />
         <div className={styles.loading}>
             <LoadingOutlined/>
         </div>
