@@ -117,7 +117,6 @@ ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 开启一下必要的服务，这样重启之后就有网并且能通过 SSH 连上啦
 
 ```shell
-systemctl enable systemd-resolved
 systemctl enable dhcpcd
 systemctl enable sshd
 ```
