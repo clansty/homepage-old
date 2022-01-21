@@ -4,6 +4,7 @@ import allPosts from '../../utils/allPosts'
 import getPostContent from '../../utils/getPostContent'
 import BlogLayout from '../../layouts/BlogLayout'
 import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {materialOceanic} from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import Head from 'next/head'
@@ -83,7 +84,7 @@ export default function SinglePost({
                 {formatDate('yyyy/MM/dd', new Date(meta.date))}
             </div>
             {/* @ts-ignore */}
-            <ReactMarkdown components={components}>{content}</ReactMarkdown>
+            <ReactMarkdown components={components} remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
             <RinMent slug={meta.slug}/>
         </div>
     </BlogLayout>
