@@ -1,5 +1,12 @@
 import Twemoji from '../components/Twemoji'
-import {ArchLinuxIcon, NextIcon, NodeIcon, OpenSUSEIcon, PythonIcon, VercelIcon, VueIcon} from '../components/IconSvgs'
+import {
+    ArchLinuxIcon,
+    MaimaiIcon,
+    NextIcon,
+    NodeIcon,
+    PythonIcon,
+    VueIcon,
+} from '../components/IconSvgs'
 
 export default function AboutContentEn() {
     return <>
@@ -8,54 +15,56 @@ export default function AboutContentEn() {
             <Twemoji text="👋" unicode="1f44b"/>
             <b>Clansty</b> here!
         </p>
-        <p>
+        <p title="Skipping classes">
             Software Engineering Sophomore.&nbsp;
             <Twemoji text="👩‍💻" unicode="1f469-200d-1f4bb"/>
         </p>
-        <p>
-            Pride as a&nbsp;
-            <Twemoji text="🏳️‍⚧️" unicode="1f3f3-fe0f-200d-26a7-fe0f"/>
-            MtF,&nbsp;
-            <Twemoji text="🏳️‍🌈" unicode="1f3f3-fe0f-200d-1f308"/>
-            a member of LGBTQ+
+        <p title="MtF 🏳️‍⚧️">
+            Normal girl
+            <Twemoji text="👧🏻" unicode="1f467-1f3fb"/>
         </p>
-        <p>
+        <p title="My self is not cute">
             Like all kinds of <del>weird</del> kawaii things
         </p>
-        <p>
+        <p title="But unable to own">
             Like cats!&nbsp;
             <Twemoji text="🐱" unicode="1f431"/>
         </p>
-        <p>Tossing weird techniques</p>
-        <p>
+        <p title="No more than Expert difficulty">
+            Play Maimai！
+            <MaimaiIcon/>
+        </p>
+        <p title="Pick up rubbishes">Tossing weird techniques</p>
+        <p title="Google oriented">
             Usually use JavaScript,&nbsp;
             <NodeIcon/>
             Node.JS for backend and utilities
         </p>
-        <p>
+        <p title="Only know easy parts">
             Seldom use&nbsp;
             <PythonIcon/>
             Python
         </p>
         <p>
-            Used to use&nbsp;
-            <VueIcon/>
-            Vue 2 for frontend, but now&nbsp;
+            Used&nbsp;
             <Twemoji text="⚛️" unicode="269b"/>
-            React。
+            React now and learning&nbsp;
+            <VueIcon/>
+            Vue 3
         </p>
-        <p>React is so good that I always use react to create web apps now</p>
-        <p>
+        <p title="A slap in the face">
+            Vue 3 seems to be nice
+        </p>
+        <p title="Practise project">
             This site is written in React (
             <NextIcon/>
             Next.JS)
         </p>
-        <p> hosted on&nbsp;
-            <VercelIcon/>
-            , Cloudflare Pages and Tencent COS
+        <p>
+            hosted on Cloudflare Pages and Tencent COS
         </p>
-        <p>Learnt some Python, C# and Java</p>
-        <p>Once learnt C++, but forgot now</p>
+        <p title="All only a little">Learnt some Python, C# and Java</p>
+        <p title="Gain nothing in contests">Once learnt C++, but forgot now</p>
         <p>
             Now using&nbsp;
             <ArchLinuxIcon/>
