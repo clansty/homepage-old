@@ -16,7 +16,7 @@
 - name: 洛灵酱的小窝
   desc: 洛灵酱可爱又强强！！
   url: 'https://luoling8192.top/'
-  color: '#FF6C6C'
+  color: '#2E8B90'
   avatar: luoling
 - name: Senioria的刺猬洞
   desc: 是可爱刺猬 Senioria！
@@ -83,3 +83,8 @@
   desc: 沐子沐子嘤嘤嘤ww
   avatar: moozae
   url: 'https://moozae.cn'
+- color: '#E28F77'
+  name: Leohearts 的 Blog
+  desc: 超可爱的芋头姐姐
+  avatar: leohearts
+  url: 'https://leohearts.com'
