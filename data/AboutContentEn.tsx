@@ -7,6 +7,7 @@ import {
     PythonIcon,
     VueIcon,
 } from '../components/IconSvgs'
+import {AppleFilled} from '@ant-design/icons'
 
 export default function AboutContentEn() {
     return <>
@@ -68,7 +69,9 @@ export default function AboutContentEn() {
         <p>
             Now using&nbsp;
             <ArchLinuxIcon/>
-            Arch Linux
+            Arch Linux and&nbsp;
+            <AppleFilled/>
+            macOS
         </p>
     </>
 }

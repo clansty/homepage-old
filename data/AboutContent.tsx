@@ -1,5 +1,6 @@
 import Twemoji from '../components/Twemoji'
 import {ArchLinuxIcon, MaimaiIcon, NextIcon, NodeIcon, PythonIcon, VueIcon} from '../components/IconSvgs'
+import {AppleFilled} from '@ant-design/icons'
 
 export default function AboutContent() {
     return <>
@@ -64,7 +65,9 @@ export default function AboutContent() {
         <p>
             目前使用的操作系统是
             <ArchLinuxIcon/>
-            Arch Linux
+            Arch Linux 和
+            <AppleFilled/>
+            macOS
         </p>
     </>
 }
