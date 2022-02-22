@@ -20,7 +20,7 @@ export default function AboutContentEn() {
             Software Engineering Sophomore.&nbsp;
             <Twemoji text="👩‍💻" unicode="1f469-200d-1f4bb"/>
         </p>
-        <p title="MtF 🏳️‍⚧️">
+        <p title="Not MtF 🏳️‍⚧️">
             Normal girl
             <Twemoji text="👧🏻" unicode="1f467-1f3fb"/>
         </p>

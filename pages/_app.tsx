@@ -28,7 +28,7 @@ function MyApp({Component, pageProps}) {
     }, [])
     return <div className={classNames(styles.container, randomBackground)}>
         <Head>
-            <link rel="icon" type="image/webp" href="/favicon.webp"/>
+            <link rel="icon" type="image/webp" href="https://cdn.lwqwq.com/pic/favicon.webp"/>
             <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes"/>
             <meta name="theme-color" content="#EDF8F6"/>
             <meta name="HandheldFriendly" content="true"/>

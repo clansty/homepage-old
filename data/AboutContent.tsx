@@ -16,7 +16,7 @@ export default function AboutContent() {
             软件工程
             <Twemoji text="👩‍💻" unicode="1f469-200d-1f4bb"/>
         </p>
-        <p title="MtF 🏳️‍⚧️">
+        <p title="才不是 MtF 🏳️‍⚧️">
             普通女孩子
             <Twemoji text="👧🏻" unicode="1f467-1f3fb"/>
         </p>
