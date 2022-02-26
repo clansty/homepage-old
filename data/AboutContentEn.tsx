@@ -16,32 +16,32 @@ export default function AboutContentEn() {
             <Twemoji text="👋" unicode="1f44b"/>
             <b>Clansty</b> here!
         </p>
-        <p title="Skipping classes">
+        <p>
             Software Engineering Sophomore.&nbsp;
             <Twemoji text="👩‍💻" unicode="1f469-200d-1f4bb"/>
         </p>
-        <p title="Not MtF 🏳️‍⚧️">
+        <p>
             Normal girl
             <Twemoji text="👧🏻" unicode="1f467-1f3fb"/>
         </p>
-        <p title="My self is not cute">
+        <p>
             Like all kinds of <del>weird</del> kawaii things
         </p>
-        <p title="But unable to own">
+        <p>
             Like cats!&nbsp;
             <Twemoji text="🐱" unicode="1f431"/>
         </p>
-        <p title="No more than Expert difficulty">
+        <p>
             Play Maimai！
             <MaimaiIcon/>
         </p>
-        <p title="Pick up rubbishes">Tossing weird techniques</p>
-        <p title="Google oriented">
+        <p>Tossing weird techniques</p>
+        <p>
             Usually use JavaScript,&nbsp;
             <NodeIcon/>
             Node.JS for backend and utilities
         </p>
-        <p title="Only know easy parts">
+        <p>
             Seldom use&nbsp;
             <PythonIcon/>
             Python
@@ -53,19 +53,19 @@ export default function AboutContentEn() {
             <VueIcon/>
             Vue 3
         </p>
-        <p title="A slap in the face">
+        <p>
             Vue 3 seems to be nice
         </p>
-        <p title="Practise project">
+        <p>
             This site is written in React (
             <NextIcon/>
             Next.JS)
         </p>
         <p>
-            hosted on Cloudflare Pages and Tencent COS
+            hosted on Cloudflare Pages
         </p>
-        <p title="All only a little">Learnt some Python, C# and Java</p>
-        <p title="Gain nothing in contests">Once learnt C++, but forgot now</p>
+        <p>Learnt some Python, C# and Java</p>
+        <p>Once learnt C++, but forgot now</p>
         <p>
             Now using&nbsp;
             <ArchLinuxIcon/>
