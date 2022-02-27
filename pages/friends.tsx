@@ -34,7 +34,7 @@ function Friends({friends}: InferGetStaticPropsType<typeof getStaticProps>) {
             </div>
             <div className={styles.groupBox}>
                 <div className={styles.title}>
-                    特别感谢！
+                    致敬！
                 </div>
                 <MtfWikiLinkBox/>
             </div>
