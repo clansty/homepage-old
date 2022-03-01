@@ -17,7 +17,7 @@ export default function RinMent({slug}) {
                 console.log(e)
                 setError(e.message)
             })
-    }, [])
+    }, [slug])
 
     if(error){
         return <div className={styles.commentBox}>
