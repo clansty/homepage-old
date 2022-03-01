@@ -2,7 +2,7 @@
 
 这篇文章可能会很长，但一定不是每一段内容都对你有意义。所以大概可以跳过不太相关的内容以节省时间。以及，我在编写这个的时候，大概参照的是大多数会想要试试 Arch Linux，并且已经有了一些 Linux 经验的人的水平。如果你不太清楚像 [SSH](https://wiki.archlinux.org/title/Secure_Shell_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)) [tty](https://en.wikipedia.org/wiki/Tty_(Unix)) [chroot](https://wiki.archlinux.org/title/Chroot_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)) 这些的概念的话，[维基百科](https://zh.wikipedia.org/wiki/Wikipedia:%E9%A6%96%E9%A1%B5)以及 [Arch Wiki](https://wiki.archlinux.org/title/Main_page_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)) 应该可以帮到你。对于 Arch Wiki，可能大部分条目默认会进入英文版本，对于大多数常用的条目，点击左上角的☰可以切换到中文版本。
 
-也许一些概念其实并不需要太明白，比如说遇到「如果有 xxx」之类的时候，可以就当它有或者当它没有，试试看会怎样。有可能出错了或者其实可以正常进行。在这个过程中，你应该会学到些什么的。
+也许一些概念其实并不需要太明白，比如说遇到「如果有 xxx」之类的时候，可以就当它有或者当它没有，试试看会怎样。像一些不明白的参数也可以这样。有可能出错了或者其实可以正常进行。在这个过程中，你应该会学到些什么的。
 
 说起来，其实我遇到的奇怪设备应该也不算很多。对于安装 Arch Linux，以及很多其他与计算机相关的事情，都比较需要随机应变，并且尽量保持耐心。如果出现了什么特殊的问题，可以多尝试去网上寻找答案。如果累了或者被奇怪的问题困扰到了，不妨休息一下，去干点别的事情，或者出去走走，或许回来了就能解决了。
 
@@ -15,6 +15,8 @@
 这是最普通的情况，也就是在一台正常的基于 [UEFI](https://wiki.archlinux.org/index.php?title=Special%3ASearch&search=UEFI%20(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)) 启动的笔记本或者台式机上。
 
 我有一个安装了 [Ventoy](https://www.ventoy.net/cn/index.html) 多重启动管理工具的 U 盘，里面保存了各种操作系统的镜像。这时候我只需要从那个 U 盘启动并选择 Arch Linux 镜像就可以进入 ArchISO 环境了。
+
+如果不想用 Ventoy，也可以使用 [balenaEtcher](https://www.balena.io/etcher/) 或者直接 dd 写入 Arch 的安装镜像
 
 不过，有一些特殊的笔记本可能会出现比如说闪屏 键盘不能用这样的问题，这些情况大概是默认的驱动参数不兼容导致的，需要在启动的时候加上特定的参数来屏蔽或者启用一些驱动。这些需要的参数一般可以在网上搜索「机器的型号 Linux」很轻松的找到。
 
@@ -91,7 +93,53 @@ Host *
 
 有些低端设备，大多是使用英特尔凌动（Atom）处理器的设备，使用 32 位的 UEFI 固件来安装 32 位 Windows 以节省性能。
 
-对于这些设备，我们其实是可以通过 32 位 GRUB 引导 64 位内核的，只需要准备一个 [32 位 GRUB 的 EFI 文件](https://wwi.lanzouw.com/iOSPi0064h4h) 放入 `EFI/BOOT` 中。这时候不能用 Ventoy 了，需要用常规方法，比如说 [balenaEtcher ](https://www.balena.io/etcher/)写入 Arch 安装镜像。EFI 文件要放在那个 Fat32 格式的分区中。
+对于这些设备，我们其实是可以通过 32 位 GRUB 引导 64 位内核的，只需要准备一个 [32 位 GRUB 的 EFI 文件](https://wwi.lanzouw.com/iOSPi0064h4h) 放入 `EFI/BOOT` 中。这时候不能用 Ventoy 了，因为 Ventoy 是 64 位的
+
+Arch 官方的 ISO 文件其实是一个双分区镜像，包含了 [ISO9660](https://zh.wikipedia.org/zh-hans/ISO_9660) 的数据分区和 EFI 启动分区，因为 ISO9660 时光盘的格式，写入到 U 盘之后在很多系统中不可读，BIOS 也可能识别不了，所以需要另一个分区来存放一些启动文件。Arch ISO 镜像分别使用 Systemd-boot 和 Syslinux 作为 EFI 和 BIOS 的启动方式，内核加载之后通过卷标来找启动盘并挂载根目录的 [SquashFS](https://en.wikipedia.org/wiki/SquashFS) 镜像
+
+我们需要先创建一个常规的 Arch USB，比如说 [balenaEtcher](https://www.balena.io/etcher/) 写入 Arch 安装镜像。EFI 文件要放在那个 Fat32 格式的分区中。然而这不是推荐的方法，因为这个 EFI 分区在一些系统上无法被正常挂载，而且分区所剩的空间很小，不够放下 GRUB 启动文件
+
+最好的做法是[手动分区 USB 设备并写入安装镜像](https://wiki.archlinux.org/title/USB_flash_installation_medium#In_GNU/Linux_4)，而不使用 ISO9660 格式，把所有数据都存在 Fat32 分区里面，还能有效利用 U 盘剩余空间
+
+首先确保 U 盘是有分区表的，而不是裸盘格式化（`sdb1` 而不是 `sdb`）然后把 U 盘分成单个 Fat32 分区。一定要给分区设置卷标并记住它，最好是和 Arch ISO 一样的名称，也就是 `ARCH_YYYYMM` 比如说 `ARCH_202202`
+
+![在 macOS 上将 USB 设备格式化为 GPT 的 Fat32](https://cdn.lwqwq.com/pic/202203011851400.png)
+
+![在 KDE 分区管理器中创建 GPT 分区表和 Fat32 分区](https://cdn.lwqwq.com/pic/202203011855290.png)
+
+然后挂载该分区，并解压 Arch ISO 镜像到 U 盘
+
+```bash
+bsdtar -xf archlinux-2022.02.01-x86_64.iso -C /Volumes/ARCH_202202
+```
+
+将[下载](https://wwi.lanzouw.com/iOSPi0064h4h)的文件放入 `EFI/BOOT`，然后就可以把 U 盘连接到待安装的设备启动了
+
+进入 GRUB 命令行之后，我们首先要找到我们的 U 盘是哪个设备
+
+```shell
+Minimal BASH-like line editing is supported. For the first word, TAB lists possible command completions. Anywhere else TAB lists possible device or file completions.
+
+grub> ls
+(memdisk) (hd0) (hd0, gpt2) (hd0, gpt1) (hd1) (hd1, gpt3) (hd1, gpt2) (hd1, gpt1) (hd2) (hd3)
+
+grub> ls (hd0, gpt2)
+Partition hd0, gpt2: Filesystem type fat - Label 'ARCH_202202', UUID 01DE-19ED - Partition start at 205824KiB Total size 62160896KiB
+
+grub> ls (hd0, gpt2)/
+arch/ efi/ loader/ syslinux/ shellx64.efi
+```
+
+需要注意的是，grub 的 ls 命令末尾加不加 `/` 是不一样的，不加会显示设备信息，加了就会列出文件
+
+在这个例子里，`(hd0, gpt2)` 就是我们要找的设备号。然后我们用下面的命令来启动系统
+
+```bash
+grub> root=(hd0, gpt2)
+grub> linux /arch/boot/x86_64/vmlinuz-linux archisobasedir=arch archisolabel=ARCH_202202 add_efi_memmap
+grub> initrd/arch/boot/x86_64/initramfs-linux.img
+grub> boot
+```
 
 #### 自带光盘的云服务器
 
@@ -827,7 +875,15 @@ pacman -Sy grub efibootmgr
 grub-install --target=i386-efi --efi-directory=/boot --bootloader-id=GRUB
 ```
 
-然后，我们编辑 `/etc/default/grub` 配置文件，加入想要的参数（参考上面）后，创建 GRUB 配置文件
+然后，我们编辑 `/etc/default/grub` 配置文件，加入想要的参数
+
+```ini
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet systemd.show_status=1"
+```
+
+由于 GRUB 会自动从现有的 fstab 中找根目录的挂载选项，所以 `root` `rootflags` 这样的参数就不需要了
+
+创建 GRUB 配置文件
 
 ```bash
 grub-mkconfig -o /boot/grub/grub.cfg
