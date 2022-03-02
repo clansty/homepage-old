@@ -546,15 +546,13 @@
 
   .body {
     height: 100vh;
-    overflow: hidden;
+    overflow: auto;
+    transition: all 0.5s;
+    scroll-behavior: smooth;
   }
 
   .postList {
-    position: absolute;
-    top: 0;
-    bottom: 0;
     padding: 55px 0 5px 0;
-    overflow-y: auto;
     overflow-x: hidden;
   }
 

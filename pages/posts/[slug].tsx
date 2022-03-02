@@ -10,7 +10,7 @@ import {materialOceanic} from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import Head from 'next/head'
 import RinMent from '../../components/RinMent'
 import formatDate from '../../utils/formatDate'
-import {ReactChildren, useEffect, useRef} from 'react'
+import {ReactChildren} from 'react'
 import Link from 'next/link'
 
 export default function SinglePost({
@@ -18,10 +18,6 @@ export default function SinglePost({
                                        content,
                                        allPosts,
                                    }: { meta: PostInfo, content: string, allPosts: PostInfo[] }) {
-    const contentBox = useRef<HTMLDivElement>()
-    useEffect(() => {
-        contentBox.current.scrollTo(0, 0)
-    }, [meta])
     const components = {
         code({node, inline, className, children, ...props}) {
             const match = /language-(\w+)/.exec(className || '')
@@ -79,7 +75,7 @@ export default function SinglePost({
             <meta name="twitter:card" content="summary"/>
             <meta name="twitter:image" content={meta.banner}/>
         </Head>
-        <div className="postContent" ref={contentBox}>
+        <div className="postContent">
             <div className="date">
                 {formatDate('yyyy/MM/dd', new Date(meta.date))}
             </div>
