@@ -530,9 +530,18 @@
   bottom: 0;
   right: 0;
 
-  @media (min-width: 900px) {
-    width: 900px;
-    margin: 0 auto;
+  &.postLayoutList {
+    @media (min-width: 900px) {
+      width: 900px;
+      margin: 0 auto;
+    }
+  }
+
+  &.postLayoutContent {
+    @media (min-width: 1050px) {
+      width: 1050px;
+      margin: 0 auto;
+    }
   }
 
   .body {

@@ -2,7 +2,7 @@ import styles from '../styles/Components.module.scss'
 import BlogHeader from '../components/BlogHeader'
 
 export default function BlogLayout({postTitle, children}: { postTitle?: string, children: any }) {
-    return <div className={styles.blogLayout}>
+    return <div className={`${styles.blogLayout} ${postTitle?styles.postLayoutContent:styles.postLayoutList}`}>
         <BlogHeader postTitle={postTitle}/>
         <div className={`${styles.body} blogBody`}>
             {children}
