@@ -101,11 +101,11 @@ Arch 官方的 ISO 文件其实是一个双分区镜像，包含了 [ISO9660](ht
 
 最好的做法是[手动分区 USB 设备并写入安装镜像](https://wiki.archlinux.org/title/USB_flash_installation_medium#In_GNU/Linux_4)，而不使用 ISO9660 格式，把所有数据都存在 Fat32 分区里面，还能有效利用 U 盘剩余空间
 
-首先确保 U 盘是有分区表的，而不是裸盘格式化（`sdb1` 而不是 `sdb`）然后把 U 盘分成单个 Fat32 分区。一定要给分区设置卷标并记住它，最好是和 Arch ISO 一样的名称，也就是 `ARCH_YYYYMM` 比如说 `ARCH_202202`
+首先确保 U 盘是有分区表的，而且是 MBR 分区表（因为有些操作系统会在创建 GPT 分区表时自动创建 ESP MSR 之类的分区），而不是裸盘格式化（`sdb1` 而不是 `sdb`）然后把 U 盘分成单个 Fat32 分区。一定要给分区设置卷标并记住它，最好是和 Arch ISO 一样的名称，也就是 `ARCH_YYYYMM` 比如说 `ARCH_202202`
 
-![在 macOS 上将 USB 设备格式化为 GPT 的 Fat32](https://cdn.lwqwq.com/pic/202203011851400.png)
+![在 macOS 上将 USB 设备格式化为 MBR 的 Fat32](https://cdn.lwqwq.com/pic/202203031059290.png)
 
-![在 KDE 分区管理器中创建 GPT 分区表和 Fat32 分区](https://cdn.lwqwq.com/pic/202203011855290.png)
+![在 KDE 分区管理器中创建 MBR 分区表和 Fat32 分区](https://cdn.lwqwq.com/pic/202203031106587.png)
 
 然后挂载该分区，并解压 Arch ISO 镜像到 U 盘
 
@@ -121,21 +121,21 @@ bsdtar -xf archlinux-2022.02.01-x86_64.iso -C /Volumes/ARCH_202202
 Minimal BASH-like line editing is supported. For the first word, TAB lists possible command completions. Anywhere else TAB lists possible device or file completions.
 
 grub> ls
-(memdisk) (hd0) (hd0, gpt2) (hd0, gpt1) (hd1) (hd1, gpt3) (hd1, gpt2) (hd1, gpt1) (hd2) (hd3)
+(memdisk) (hd0) (hd0, msdos1) (hd1) (hd1, gpt3) (hd1, gpt2) (hd1, gpt1) (hd2) (hd3)
 
-grub> ls (hd0, gpt2)
+grub> ls (hd0, msdos1)
 Partition hd0, gpt2: Filesystem type fat - Label 'ARCH_202202', UUID 01DE-19ED - Partition start at 205824KiB Total size 62160896KiB
 
-grub> ls (hd0, gpt2)/
+grub> ls (hd0, msdos1)/
 arch/ efi/ loader/ syslinux/ shellx64.efi
 ```
 
 需要注意的是，grub 的 ls 命令末尾加不加 `/` 是不一样的，不加会显示设备信息，加了就会列出文件
 
-在这个例子里，`(hd0, gpt2)` 就是我们要找的设备号。然后我们用下面的命令来启动系统
+在这个例子里，`(hd0, msdos1)` 就是我们要找的设备号。然后我们用下面的命令来启动系统
 
 ```bash
-grub> root=(hd0, gpt2)
+grub> root=(hd0, msdos1)
 grub> linux /arch/boot/x86_64/vmlinuz-linux archisobasedir=arch archisolabel=ARCH_202202 add_efi_memmap
 grub> initrd/arch/boot/x86_64/initramfs-linux.img
 grub> boot
@@ -258,7 +258,12 @@ ssh root@192.168.213.84(被安装设备的 IP 地址) -J u0_a394(改成刚刚 wh
 
 如果你是在 tty 中进行安装的，请不要这样设置，因为一般来说 tty 不支持中文，出现中文的地方都会显示口口。除非你是 cjktty 之类。
 
+大概 Arch ISO 应该是没有 locale-gen 中文语言的，还需要生成一下语言文件
+
 ```bash
+echo 'en_US.UTF-8 UTF-8
+zh_CN.UTF-8 UTF-8' > /etc/locale.gen
+locale-gen
 export LANG=zh_CN.UTF-8
 ```
 
