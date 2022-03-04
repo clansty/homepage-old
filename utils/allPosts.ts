@@ -8,6 +8,7 @@ const posts: PostInfo[] = []
 
 for (const postPath of postPaths) {
     const metaPath = path.join('posts', postPath, 'meta.yaml')
+    if (!fs.existsSync(metaPath)) continue
 
     const post: PostInfo = YAML.parse(fs.readFileSync(metaPath, 'utf-8'))
     post.slug = postPath
