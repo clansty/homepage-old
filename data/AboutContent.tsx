@@ -29,7 +29,7 @@ export default function AboutContent() {
             喜欢猫咪！
             <Twemoji text="🐱" unicode="1f431"/>
         </p>
-        <p title="只会打红铺">
+        <p>
             打 Maimai！
             <MaimaiIcon/>
         </p>
