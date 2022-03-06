@@ -987,6 +987,16 @@ export LANG=zh_CN.UTF-8
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 ```
 
+可以启用新版的 Docker build 界面
+
+```bash
+export DOCKER_BUILDKIT=1
+```
+
+启用了之后像这个样子
+
+![启用 DOCKER_BUILDKIT 的效果](https://cdn.lwqwq.com/pic/202203061135857.png)
+
 当初用 Flatpak 的时候没法自动设置 XDG 数据目录，所以加这么一段。要是没有用 Flatpak 而取消注释这一段的话，会导致开机出各种奇怪问题
 
 ```bash
