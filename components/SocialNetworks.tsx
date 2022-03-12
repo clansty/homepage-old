@@ -11,9 +11,6 @@ const SocialNetworks = (hoverHandler) => {
             <a href="https://github.com/Clansty" onMouseEnter={hoverHandler} onFocus={hoverHandler}>
                 <GithubOutlined/>
             </a>
-            <a href="https://twitter.com/Clanstty" onMouseEnter={hoverHandler} onFocus={hoverHandler}>
-                <TwitterOutlined/>
-            </a>
             <a href="https://t.me/Clansty" onMouseEnter={hoverHandler} onFocus={hoverHandler}>
                 <TelegramIcon/>
             </a>
