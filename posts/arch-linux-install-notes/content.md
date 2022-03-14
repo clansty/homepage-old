@@ -544,6 +544,12 @@ mount /dev/sda1 /mnt/boot
 
 在这之前，先确保该挂载的分区都挂载好了，该启用的 SWAP 已经都启用了
 
+如果你需要使用代理，pacman 会遵守 `all_proxy` 环境变量
+
+```bash
+export all_proxy="socks5://192.168.1.2:1080"
+```
+
 基本的软件包们，我比较喜欢 `linux-zen` 内核
 
 ```bash
