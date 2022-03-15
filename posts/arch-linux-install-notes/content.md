@@ -860,6 +860,7 @@ MODULE_PATH=boot:///initramfs-linux-zen.img
 然后，我们可以创建一个 pacman hook 来实现在更新之后自动升级。limine 更新还挺勤快的
 
 ```bash
+mkdir -p /etc/pacman.d/hooks
 vim /etc/pacman.d/hooks/liminedeploy.hook
 ```
 
