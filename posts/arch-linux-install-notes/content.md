@@ -724,6 +724,8 @@ Server = https://aur.men.ci/archlinux/$arch
 Server = https://mirrors.sjtug.sjtu.edu.cn/archlinux-cn/$arch
 ```
 
+> 如果使用 Arch Linux 32，需要把 archlinuxcn 中的 `$arch` 改为 `i686`，移除 menci 源（不支持），并且将文件上方的 `Architecture` 设为 `pentium4 i686`（否则会装不了 [i686](https://myonlineusb.wordpress.com/2011/06/08/what-is-the-difference-between-i386-i486-i586-i686-i786/) 的包）
+
 然后，我们需要安装 `archlinuxcn-keyring`
 
 ```bash
