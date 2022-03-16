@@ -1,10 +1,10 @@
-# Hi, Clansty here.
+# Hi 👋 Clansty here.
 
-- Software Engineering Sophomore
-- Normal college girl
-- Use NodeJS backend, Vue.JS or React for frontend
-- Also write Python, C# and Java
-- Make something to improve my life
+- 👩‍💻 Software Engineering Sophomore
+- 👧🏻 Normal college girl
+- 📝 Use NodeJS backend, Vue.JS or React for frontend
+- 🌟 Make something to improve my life
+- 💕 Opensource
 
 [Homepage (zh)](https://clansty.com) · [Blog (zh)](https://nyac.at) · About ([zh](https://clansty.com/about?lang=zh) / [en](https://clansty.com/about?lang=en)) · [Sponsor](https://feed.lwqwq.com)
 
