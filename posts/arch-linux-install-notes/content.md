@@ -77,8 +77,8 @@ pacman-key --populate archlinux
 
 如果正在重装云服务器，也请停止不必要的服务，清理一下 `/tmp` 目录，并且保持稳定的网络连接。最好是启用连接保活心跳
 
-```
-~/.ssh/config
+```shell
+vim ~/.ssh/config
 ```
 
 ```shell
@@ -187,7 +187,9 @@ station wlan0 connect TP-LINK-XXXX(改为你网络的名称)
 
 ## 打开 Arch ISO 的 SSH（可选）
 
-如果你是进入的 Arch ISO 环境，并且你手上有另一台在同一内网中并且可以使用的电脑的话，可以在 Arch ISO 中开启 SSH 服务器，然后使用你手上能用的电脑远程给它安装 Arch Linux。
+如果你是进入的 Arch ISO 环境，并且你手上有另一台在同一内网中并且可以使用的电脑的话，可以在 Arch ISO 中开启 SSH 服务器，然后使用你手上能用的电脑远程给它安装 Arch Linux。这样的话，我们可以方便的复制粘贴命令。
+
+如果你并不能通过 SSH 之类的方法安装的话，其实有一些「为了以后」的步骤可以暂时先跳过，等进入系统之后再做。
 
 ```bash
 ip addr # 看下机器的 IP 地址并记住它
@@ -813,7 +815,7 @@ vim /boot/loader/entries/arch.conf
 ```shell
 title          Arch Linux
 linux          /vmlinuz-linux-zen
-initrd  			 /intel-ucode.img
+initrd         /intel-ucode.img
 initrd         /initramfs-linux-zen.img
 options        root=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx rootflags=subvol=@,compress=zstd:3 rw loglevel=3 quiet systemd.show_status=1
 ```
@@ -856,6 +858,7 @@ TIMEOUT=0
 PROTOCOL=linux
 KERNEL_PATH=boot:///vmlinuz-linux-zen
 CMDLINE=root=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx rootflags=subvol=@,compress=zstd:3 rw loglevel=3 quiet systemd.show_status=1
+MODULE_PATH=boot:///intel-ucode.img
 MODULE_PATH=boot:///initramfs-linux-zen.img
 ```
 
