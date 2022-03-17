@@ -982,10 +982,14 @@ export GOOGLE_DEFAULT_CLIENT_SECRET=*****-********
 # 代理
 #export HTTP_PROXY=http://proxy:7890
 #export ELECTRON_GET_USE_PROXY=1
+export http_proxy=$HTTP_PROXY
 export HTTPS_PROXY=$HTTP_PROXY
+export https_proxy=$HTTP_PROXY
 export GLOBAL_AGENT_HTTP_PROXY=$HTTP_PROXY
 export GLOBAL_AGENT_HTTPS_PROXY=$HTTP_PROXY
 ```
+
+开关代理的时候，只需要注释或取消注释前两行，因为下面都是在引用 `HTTP_PROXY` 这个变量。以及，有些软件响应大写的环境变量，而有些软件响应小写的
 
 语言设置，有时候系统 locale 并没有设置成中文
 
