@@ -731,7 +731,7 @@ Server = https://mirrors.sjtug.sjtu.edu.cn/archlinux-cn/$arch
 然后，我们需要安装 `archlinuxcn-keyring`
 
 ```bash
-pacman -S archlinuxcn-keyring
+pacman -Sy archlinuxcn-keyring
 ```
 
 接下来我们可以安装一些像 yay 这样的东西了
@@ -769,10 +769,11 @@ passwd clansty
 
 ```bash
 su clansty
-mkdir ~/.ssh
-chmod 700 ~/.ssh
-curl https://keys.your.domain/id_rsa.pub >> ~/.ssh/authorized_keys
-chmod 600 ~/.ssh/authorized_keys
+  mkdir ~/.ssh
+  chmod 700 ~/.ssh
+  curl https://keys.your.domain/id_rsa.pub >> ~/.ssh/authorized_keys
+  chmod 600 ~/.ssh/authorized_keys
+exit
 ```
 
 运行 [visudo](https://wiki.archlinux.org/title/Sudo_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E4%BD%BF%E7%94%A8_visudo)，允许 wheel 组的 sudo 访问
