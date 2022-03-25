@@ -22,7 +22,7 @@ export default function Posts({posts}: InferGetStaticPropsType<typeof getStaticP
 export const getStaticProps = async () => {
     return {
         props: {
-            posts: allPosts,
+            posts: allPosts.filter(e => !e.hidden),
             isInBlog: true,
         },
     }

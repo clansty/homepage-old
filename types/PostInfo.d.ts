@@ -4,4 +4,5 @@ export default interface PostInfo {
     date: string
     banner?: string
     slug: string
+    hidden?: boolean
 }
