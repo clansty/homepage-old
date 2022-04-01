@@ -33,10 +33,10 @@ export default function Home() {
                 <span>Blog</span>
             </a>
         </Link>
-        {/* <a href="https://dl.lwqwq.com" onMouseEnter={hoverHandler} onFocus={hoverHandler}>
+        <a href="https://dl.lwqwq.com" onMouseEnter={hoverHandler} onFocus={hoverHandler}>
             资源
             <span>Downloads</span>
-        </a> */}
+        </a>
         <Link href="/friends">
             <a onMouseEnter={hoverHandler} onFocus={hoverHandler}>
                 好朋友们
