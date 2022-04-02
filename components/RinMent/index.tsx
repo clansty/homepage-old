@@ -27,7 +27,7 @@ export default function RinMent({slug}) {
     }
 
     return <div>
-        <CommentBox slug={slug} addComment={addComment}/>
+        {/* <CommentBox slug={slug} addComment={addComment}/> */}
         {comments.map(e => <SingleComment comment={e} key={e._id}/>)}
     </div>
 
